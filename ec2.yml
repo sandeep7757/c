@@ -1,0 +1,20 @@
+---
+ - hosts: localhost
+   connection: local
+   gather_facts: False
+      tasks:
+        name: Provision instances
+        ec2:
+            key_name: ansible-test  #replace with key name
+            instance_type: t2.micro #optional: replace with instance type
+            region: us-east-1 #optional: replace with region
+            image: ami-0cff7528ff583bf9a  #replace with AWS image
+            group_id: 
+            wait: true
+            exact_count: 1 #optional: replace with number of instances to spawn
+            count_tag:
+            Name: helloworld  # Replace with name
+            instance_tags:
+              Name: hellowrld # Replace with tag (can be same as name)
+              register: ec2
+...

@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    ec2:
+     key_name: ansible-test
+     instance_type: t2.micro
+     image: ami-0cff7528ff583bf9a
+     wait: yes
+     count: 1
+     vpc_subnet_id: subnet-01c0ace63625597c8
+     assign_public_ip: yes
+...
